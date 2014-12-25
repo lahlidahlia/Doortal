@@ -60,8 +60,7 @@ public class PlayerScript : MonoBehaviour {
 
 
         //Determining player combined color
-        if (Global.PlayerColor2 != Color.white || Global.PlayerColor1 == Global.PlayerColor2)
-        {
+        if (Global.PlayerColor2 != Color.white){
             //Debug.Log("PlayerColor1 = " + Global.PlayerColor1.ToString());
             //Debug.Log("PlayerColor2 = " + Global.PlayerColor2.ToString());
             
@@ -107,34 +106,34 @@ public class PlayerScript : MonoBehaviour {
         Global.PlayerColorCombined.a = 1;
         //Debug.Log(Global.PlayerColorCombined.ToString());
         //Setting the player's color based on combined color
-        if (Global.PlayerColorCombined == Color.white) {
-            currentColor = playerWhite;
-        }
-        if (Global.PlayerColorCombined == Color.blue)
-        {
-            currentColor = playerBlue;
-        }
-        if (Global.PlayerColorCombined == Color.red)
-        {
-            currentColor = playerRed;
-        }
-        if (Global.PlayerColorCombined == Color.green)
-        {
-            currentColor = playerGreen;
-        }
-        if (Global.PlayerColorCombined == Color.magenta)
-        {
-            currentColor = playerMagenta;
-        }
-        if (Global.PlayerColorCombined == Color.cyan)
-        {
-            currentColor = playerCyan;
-        }
-        if (Global.PlayerColorCombined == new Color(1, 1, 0, 1)) //Because Color.yellow is (1, 0.92, 0.016, 1) but we want to check for pure yellow
-        {
-            currentColor = playerYellow;
-        }
-
+        //if (Global.PlayerColorCombined == Color.white) {
+        //    currentColor = playerWhite;
+        //}
+        //if (Global.PlayerColorCombined == Color.blue)
+        //{
+        //    currentColor = playerBlue;
+        //}
+        //if (Global.PlayerColorCombined == Color.red)
+        //{
+        //    currentColor = playerRed;
+        //}
+        //if (Global.PlayerColorCombined == Color.green)
+        //{
+        //    currentColor = playerGreen;
+        //}
+        //if (Global.PlayerColorCombined == Color.magenta)
+        //{
+        //    currentColor = playerMagenta;
+        //}
+        //if (Global.PlayerColorCombined == Color.cyan)
+        //{
+        //    currentColor = playerCyan;
+        //}
+        //if (Global.PlayerColorCombined == new Color(1, 1, 0, 1)) //Because Color.yellow is (1, 0.92, 0.016, 1) but we want to check for pure yellow
+        //{
+        //    currentColor = playerYellow;
+        //}
+        currentColor = Global.PlayerColorCombined;
         spriteRenderer.color = Color.Lerp(spriteRenderer.color, currentColor, colorTransSpeed * Time.deltaTime);
 
         //Casting rays and creating dynamic shadows
@@ -317,11 +316,11 @@ public class PlayerScript : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Wall" && !isInWall) {
-            SoundScript.Sound.MakePasswallSound();
-            isInWall = true;
-        }
+    //void OnTriggerEnter2D(Collider2D other) {
+    //    if (other.tag == "Wall" && !isInWall) {
+    //        SoundScript.Sound.MakePasswallSound();
+    //        isInWall = true;
+    //    }
         //if (other.tag == "ColorPlate") {
         //    Debug.Log("COLOR CHANGE!");
         //    ColorPlateScript scr = other.GetComponent<ColorPlateScript>();
@@ -331,7 +330,7 @@ public class PlayerScript : MonoBehaviour {
         //        part.startColor = scr.color;
         //    }
         //}
-    }
+    //}
 
     void OnTriggerStay2D(Collider2D other) {
         if (other.tag == "Wall" && !isInWall) {
