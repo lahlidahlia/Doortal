@@ -91,6 +91,7 @@ public class PlayerScript : MonoBehaviour {
             }
             else{ //If colors are on opposite end of the spectrum
                 Global.PlayerColorCombined = Color.black;
+                
             }
             //Combining the color into one slot
             if (Input.GetButtonDown("CombineColor"))
@@ -101,6 +102,7 @@ public class PlayerScript : MonoBehaviour {
         }
         else {//If one color is white or both color is the same
             Global.PlayerColorCombined = Global.PlayerColor1;
+            Debug.Log(Global.PlayerColorCombined);
         }
         Global.PlayerColorCombined.a = 1;
         //Debug.Log(Global.PlayerColorCombined.ToString());

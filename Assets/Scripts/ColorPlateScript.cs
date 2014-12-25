@@ -50,6 +50,7 @@ public class ColorPlateScript : MonoBehaviour {
         //TODO TODO TODO TODO
         if (color == Global.PlayerColor1 || color == Global.PlayerColor2) { //If player already have colorplate's color
             currentColor.a = 0; //Don't show particle
+            Debug.Log(Global.PlayerColorCombined);
         }
         else {
             if (Global.PlayerColor2 != Color.white) { //If both colors are filled
