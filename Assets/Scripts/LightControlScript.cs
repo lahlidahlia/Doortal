@@ -26,7 +26,7 @@ public class LightControlScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Light color 
+        light.color = color;
         //color = Global.PlayerColorCombined;
 
         //if (color == Color.blue)
@@ -57,20 +57,5 @@ public class LightControlScript : MonoBehaviour
         //{
         //    light.color = lightDefault;
         //}
-
-
-        //Light Toggle
-        if (lightToggle == false){      //If light is off
-            light.range = lightToggleLow;      
-            if (Input.GetButtonDown("LightToggle")){
-                lightToggle = true;
-            }
-        }
-        else{         //If light is on
-            light.range = lightToggleHigh;
-            if (Input.GetButtonDown("LightToggle")){
-                lightToggle = false;
-            }
-        }
     }
 }

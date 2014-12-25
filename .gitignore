@@ -15,6 +15,7 @@
 
 #Unity3D Generated File On Crash Reports
 sysinfo.txt
+<<<<<<< HEAD
 
 # =========================
 # Operating System Files
@@ -62,3 +63,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+=======
+>>>>>>> 3e319fd57e30e8e8293808fda7704d72bbc40bef
