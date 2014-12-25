@@ -89,9 +89,8 @@ public class PlayerScript : MonoBehaviour {
                 (Global.PlayerColor1 == Color.magenta && Global.PlayerColor2 == Color.cyan)){ //cyan + magenta = blue
                 Global.PlayerColorCombined = Color.blue;
             }
-            else
-            {
-                Global.PlayerColorCombined = Global.PlayerColor1;
+            else{ //If colors are on opposite end of the spectrum
+                Global.PlayerColorCombined = Color.black;
             }
             //Combining the color into one slot
             if (Input.GetButtonDown("CombineColor"))
