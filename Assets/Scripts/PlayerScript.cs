@@ -52,7 +52,7 @@ public class PlayerScript : MonoBehaviour {
         {
             Global.colorSelected = true;
         }
-        else if (((Input.GetButtonDown("ColorToggle") && Global.colorSelected == true) || Global.PlayerColor2 == Color.white) && Application.loadedLevel != 4) //If the player has white in his inventory, automatically select it, to avoid having white in the inventory. Doesn't allow player to switch color during level 1
+        else if (((Input.GetButtonDown("ColorToggle") && Global.colorSelected == true) || Global.PlayerColor2 == Color.white)) //If the player has white in his inventory, automatically select it, to avoid having white in the inventory. Doesn't allow player to switch color during level 1
         {
             Global.colorSelected = false;
         }
@@ -94,11 +94,10 @@ public class PlayerScript : MonoBehaviour {
                 
             }
             //Combining the color into one slot
-            if (Input.GetButtonDown("CombineColor"))
-            {
+            if (Input.GetButtonDown("CombineColor") && Application.loadedLevel >= 4){
                 if(Global.PlayerColor1 != Color.black && Global.PlayerColor2 != Color.black && Global.PlayerColorCombined != Color.black){ //Don't combine if you have any black color
-                Global.PlayerColor1 = Global.PlayerColorCombined;
-                Global.PlayerColor2 = Color.white;
+                    Global.PlayerColor1 = Global.PlayerColorCombined;
+                    Global.PlayerColor2 = Color.white;
                 }
             }
         }
