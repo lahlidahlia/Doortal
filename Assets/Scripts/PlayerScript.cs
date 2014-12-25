@@ -96,13 +96,15 @@ public class PlayerScript : MonoBehaviour {
             //Combining the color into one slot
             if (Input.GetButtonDown("CombineColor"))
             {
+                if(Global.PlayerColor1 != Color.black && Global.PlayerColor2 != Color.black && Global.PlayerColorCombined != Color.black){ //Don't combine if you have any black color
                 Global.PlayerColor1 = Global.PlayerColorCombined;
                 Global.PlayerColor2 = Color.white;
+                }
             }
         }
         else {//If one color is white or both color is the same
             Global.PlayerColorCombined = Global.PlayerColor1;
-            Debug.Log(Global.PlayerColorCombined);
+            
         }
         Global.PlayerColorCombined.a = 1;
         //Debug.Log(Global.PlayerColorCombined.ToString());
