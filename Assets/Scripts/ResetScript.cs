@@ -9,9 +9,9 @@ public class ResetScript : MonoBehaviour {
         }
     }
 
-    //void OnGUI () {
-    //        if (GUI.Button (new Rect (20,40,120,140), "MAIN MENU!")) {
-    //            Application.LoadLevel (name: "Level 0");
-    //        }
-    //    }
-	}
+    void OnGUI() {
+        if (GUI.Button(new Rect(27, 40, 120, 30), "RESTART LEVEL")) {
+            Application.LoadLevel(Application.loadedLevel);
+        }
+    }
+}
