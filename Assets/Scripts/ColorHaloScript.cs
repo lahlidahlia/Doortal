@@ -16,28 +16,43 @@ public class ColorHaloScript : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (halo1) { //Halo 1
-            if(Global.PlayerColor1 != Color.white){ //If color 1 has a color
+            if (Global.PlayerColor1 != Color.white) { //If color 1 has a color
                 currentColor = Global.PlayerColor1;
             }
-            else{
-                currentColor.a = 0; //Make halo invisible
+            else {
+                currentColor = Color.white;
             }
-        } 
+        }
         else { //Halo 2
-            if(Global.PlayerColor2 != Color.white){ //If color 2 has a color
+            if (Global.PlayerColor2 != Color.white) { //If color 2 has a color
                 currentColor = Global.PlayerColor2;
             }
-            else if(Global.PlayerColor1 != Color.white) { //If color 1 has a color
+            else if (Global.PlayerColor1 != Color.white) { //If color 1 has a color
                 currentColor = Global.PlayerColor1;
             }
-            else{
-                currentColor.a = 0;
+            else {
+                currentColor = Color.white;
             }
         }
-        if(currentColor.a != 0){
-            currentColor.a = 0.5f; //Make halo transparent
+        if (Global.PlayerColor1 == Color.white && Global.PlayerColor2 == Color.white) {
+            currentColor.a = 0; //Make halo transparent
         }
+        else if (Global.PlayerColor1 != Color.white && Global.PlayerColor2 == Color.white) {
+            currentColor.a = 0.5f;
+        }
+        else if (Global.PlayerColor1 != Color.white && Global.PlayerColor2 != Color.white) {
+            if (Global.colorSelected && halo1) {
+                currentColor.a = 1f;
+            }
+            else if (!Global.colorSelected && !halo1) {
+                currentColor.a = 1f;
+            }
+            else {
+                currentColor.a = 0.2f;
+            }
+        }
+
         spriteRenderer.color = Color.Lerp(spriteRenderer.color, currentColor, colorTransSpeed * Time.deltaTime);
-        transform.rotation = Quaternion.Euler(new Vector3(0,0, transform.rotation.eulerAngles.z + spinRate));
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, transform.rotation.eulerAngles.z + spinRate));
     }
 }
