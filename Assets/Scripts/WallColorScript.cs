@@ -12,7 +12,10 @@ public class WallColorScript : MonoBehaviour {
     public Sprite cyanWall;
     public Sprite defaultWall;
 
-    public SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
+
+    private Color currentColor;
+    public float colorTransSpeed;
 
 	void Start () {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -53,13 +56,14 @@ public class WallColorScript : MonoBehaviour {
         { //If the player has the same color as the door
             collider2D.isTrigger = true;        //Turn the wall into trigger (i.e. the player can walk through it)
             gameObject.layer = 16; //Use a layer that let light through
-            spriteRenderer.color = new Color(1, 1, 1, 0.2f);
+            currentColor = new Color(1, 1, 1, 0.2f);
         }
         else
         {
             collider2D.isTrigger = false;
             gameObject.layer = 15; //Use a layer that blocks light
-            spriteRenderer.color = new Color(1, 1, 1, 1f);
+            currentColor = new Color(1, 1, 1, 1f);
         }
+        spriteRenderer.color = Color.Lerp(spriteRenderer.color, currentColor, colorTransSpeed * Time.deltaTime);
 	}
 }
