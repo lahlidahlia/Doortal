@@ -10,7 +10,7 @@ public class ResetScript : MonoBehaviour {
     }
 
     void OnGUI() {
-        if (GUI.Button(new Rect(27, 40, 120, 30), "RESTART LEVEL")) {
+        if (GUI.Button(new Rect(27, 40, 120, 30), "RESET")) {
             Application.LoadLevel(Application.loadedLevel);
         }
     }
